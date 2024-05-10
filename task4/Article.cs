@@ -16,23 +16,24 @@ public class Article
 {
     private string _productName;
     private string _nameShop;
-    private double _costOfGood;
+    private double _costOfGoods;
 
-    public string ProductName
+    public Article(string goodsName, string nameShop, double costOfGoods)
     {
-        set { _productName = value;}
-        get { return _productName;}
+        this._nameShop = nameShop;
+        this._productName = goodsName;
+        this._costOfGoods = costOfGoods;
     }
 
-    public string NameShop
+    public string GoodsName
     {
-        set { _nameShop = value; }
-        get { return _nameShop; }
+        get { return _productName; }
     }
 
-    public double CostOfGood
+    public void ShowInfoFoGoods()
     {
-        set { _costOfGood = value; }
-        get { return _costOfGood; }
+        Console.WriteLine(_nameShop);
+        Console.WriteLine(_productName);
+        Console.WriteLine(_costOfGoods);
     }
 }

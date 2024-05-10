@@ -15,14 +15,14 @@ namespace task4;
  */
 public class Store
 {
-    private Article[] _goodsOfStor = new Article[0];
+    private Article[] _goodsOfStor;
 
-    public Store(Article article)
+    public Store(params Article[] article)
     {
-        Array.Resize(ref _goodsOfStor,_goodsOfStor.Length + 1);
+        _goodsOfStor = article;
     }
-
-    public Article this [int indexGood]
+    
+    public Article this[int indexGood]
     {
         get
         {
@@ -30,27 +30,21 @@ public class Store
         }
     }
 
-   /* pu
-            int indexFindsGoods=default;
-            bool faind = false;
-            for (int i = 0; i < _goodsOfStor.Length; i++)
+    public void SearchGoodsForName(string nameGoods)
+    {
+        bool res = false;
+        for (int   i = 0;   i < _goodsOfStor.Length;   i++)
+        {
+            if (_goodsOfStor[i].GoodsName == nameGoods)
             {
-                if (_goodsOfStor[i].ProductName == nameGoodforSherch)
-                {
-                    indexFindsGoods = i;
-                    
-                }
-            }
-
-            if (faind)
-            {
-                return _goodsOfStor[indexFindsGoods];
-            }
-            else
-            {
-                retur;
+                res = true;
+                _goodsOfStor[i].ShowInfoFoGoods();
             }
         }
-*/
+        if (!res)
+        {
+            Console.WriteLine("За  вашим запитом нічого не знайдено");
+        }
+        
     }
 }
